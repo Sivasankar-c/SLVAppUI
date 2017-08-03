@@ -1,0 +1,9 @@
+header, footer {
+    height: auto;
+    outline: 1px solid gray;
+
+}
+.mainContainer{
+    /*height: 100%; */
+}
+
