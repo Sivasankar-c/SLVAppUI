@@ -1,35 +1,51 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgModule,NO_ERRORS_SCHEMA } from '@angular/core';
 //import {RouterModule} from '@angular/router';
 import {AppRoutingModule,RoutedComponents} from './routes/app.routes';
-//import{Material,Module} from '@angular/material';
+import{MaterialModule,MdFormFieldModule} from '@angular/material';
+
+//import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { HomeComponent } from './routes/home/home.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MdButtonModule,MdCardModule,MdMenuModule,MdToolbarModule,MdIconModule} from '@angular/material';
+
+//import { MdButtonModule,MdCardModule,MdMenuModule,MdToolbarModule,MdIconModule,MdInputContainer} from '@angular/material';
 import { LoginComponent } from './routes/login/login.component';
+import { DashboardComponent } from './routes/dashboard/dashboard.component';
+import {StoreModule} from '@ngrx/store';
+import {CounterReducers} from './shared/ngrx-reducers';
+import {UserIdleModule} from 'angular-user-idle';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    RoutedComponents
+    RoutedComponents,
+    DashboardComponent
     //HomeComponent,
     //LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    /*
     MdButtonModule,
     MdCardModule,
     MdMenuModule,
     MdToolbarModule,
     MdIconModule,
-    AppRoutingModule
+    MdInputContainer,
+    */
+    AppRoutingModule,
+    
+    MaterialModule,
+    MdFormFieldModule,
+    
+    //MDBBootstrapModule.forRoot(),
     //MaterialModule,
     /*
     RouterModule.forRoot([
@@ -37,6 +53,10 @@ import { LoginComponent } from './routes/login/login.component';
       {  path:'home', component:HomeComponent}
     ])
     */
+
+    StoreModule.forRoot({counter:CounterReducers}),
+    UserIdleModule.forRoot({idle:60,timeout:30,ping:10})
+   
       
   
   ],

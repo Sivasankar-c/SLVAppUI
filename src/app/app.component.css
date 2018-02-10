@@ -1,4 +1,4 @@
-header, footer {
+header {
     height: auto;
     outline: 1px solid gray;
 
@@ -6,4 +6,26 @@ header, footer {
 .mainContainer{
     /*height: 100%; */
 }
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.maincontent {
+        height: 500px;
+        border: 1px solid #999;
+        background: #ffffff;
+        margin-left: -30px;
+        margin-right: -30px;
+
+
+    }
+    footer {
+      background-color: #3f51b5;
+      color: white;
+      padding: 2px;
+    }
+
+    /* On small screens, set height to 'auto' for grid */
+    @media screen and (max-width: 767px) {
+      
+      .row.maincontent {height:auto;} 
+    }
 
